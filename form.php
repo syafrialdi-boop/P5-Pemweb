@@ -67,6 +67,7 @@
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
+            margin-top: 10px;
         }
 
         button:hover{
@@ -82,39 +83,50 @@
         }
     </style>
 </head>
-<body class="body-html">
-    <form>
-        <div class="nama-label">
-            <label>Nama</label> <br>
+<body>
+
+<div class="container">
+
+    <h2>Form Sederhana</h2>
+
+    <form method="GET">
+
+        <div class="form-group">
+            <label>Nama</label>
             <input name="nama" type="text" placeholder="Masukkan nama">
         </div>
 
-        <div class="alamat-label">
-            <label>Alamat</label> <br>
+        <div class="form-group">
+            <label>Alamat</label>
             <input name="alamat" type="text" placeholder="Masukkan alamat">
         </div>
 
-        <div>
-            <button>Submit</button>
-        </div>
+        <button type="submit">Submit</button>
+
     </form>
 
-<?php # membuka tag PHP
+    <?php
 
-$nama = @$_GET['nama'];
-$alamat = @$_GET['alamat'];
+    $nama = @$_GET['nama'];
+    $alamat = @$_GET['alamat'];
 
-# di sini nanti kita akan tampilkan variabel $nama dan $alamat
-if ($nama) {
-    echo "<strong>Nama:</strong> {$nama} <br>";
-}
+    if($nama || $alamat){
+        echo "<div class='hasil'>";
 
-if ($alamat) {
-    echo "<strong>Alamat:</strong> {$alamat} <br>";
-}
+        if($nama){
+            echo "<strong>Nama :</strong> $nama <br><br>";
+        }
 
-# jangan lupa tutup tag PHP
-?>
+        if($alamat){
+            echo "<strong>Alamat :</strong> $alamat";
+        }
+
+        echo "</div>";
+    }
+
+    ?>
+
+</div>
 
 </body>
 </html>
